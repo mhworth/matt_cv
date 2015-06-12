@@ -1,0 +1,51 @@
+{% extends "core/project_base.djhtml" %}
+{% load url from future %}
+
+{% block description %}
+<h2>My Involvement in Diamond Detector Technology</h2>
+<p>
+My main involvement with diamond detector technology is through two projects: a pilot diamond tracker project called the Pixel Luminosity Telescope (PLT), and the Beam Conditions Monitor (BCM) system in the <a href="http://en.wikipedia.org/wiki/Compact_Muon_Solenoid">Compact Muon Solenoid Experiment (CMS)</a>. 
+</p>
+
+<p>
+The PLT is a next generation <a rel="tooltip" href="http://en.wikipedia.org/wiki/Luminosity" title="The number of particles per unit area per unit time times the opacity of the target">luminosity</a> monitor, situated close to the interaction region of the <a href="http://en.wikipedia.org/wiki/Large_Hadron_Collider">Large Hadron Collider (LHC)</a> inside of the <a href="http://en.wikipedia.org/wiki/Compact_Muon_Solenoid">Compact Muon Solenoid Experiment (CMS)</a>.  Diamond was chosen for this project due to its radiation hardness and the fact that it does not need extra cooling to operate (there is not enough room so close to the interaction point to support the extra cooling).
+</p>
+
+<p>
+The BCM system is a radiation monitoring system, also located near the interaction region of CMS, which has the responsibility of monitoring the dangerous radiation background that CMS is subjected to.  It is primarily a safety system--CMS shuts down and aborts the beam if the background gets too high.  Diamond was a good fit to this project, as it requires dependability above all else, and the durability of diamond ensures a stable instrument for many years to come.
+</p>
+
+<h2>My Contributions</h2>
+<p>
+<!-- Due to the durability of diamond to ionizing radiation, instrument lifetime of a diamond-based detector can be substantially longer than its silicon counterpart (which is currently in use for other subsystems, such as the CMS Pixel system).  -->
+Diamond sensor technology is fairly new, and much is not yet known about their feasibility for different detector applications.  As part of my <a href="{% url 'cv'%}#gra">work</a> with the <a href="http://www.utk.edu">University of Tennessee at Knoxville</a>, I helped to quantify the performance parameters of diamond that are relevant to its applicability as a charged particle tracking sensor.  Most notably, I measured the <a rel="tooltip" title="Minimum particle flux detectible through the particle detector">minimum sensitivity</a> of the BCM1L system, the <a rel="tooltip" title="A measure of how accurately a detector can position a particle which passes through it">spatial resolution</a> of the PLT system, and the <a rel="tooltip" title="The angle between the static electric field in a region and the resulting force on a mobile charge carrier due to the magnetic field">Lorentz angle</a> of the PLT detectors.
+</p>
+
+
+<h4>Minimum Sensitivity of the BCM1L System</h4>
+<p>
+This analysis was presented to the <a rel="tooltip" title="A CERN-based research consortium focused on developing diamond sensor technology" href="http://greybook.cern.ch/programmes/experiments/RD42.html">RD42 Collaboration</a> in 2008.  The methodology used and the results found are summarized in <a href="{{STATIC_URL}}/projects/diamond/bcm-minimum-sensitivity.ppt">this talk</a>.  These results were used to tune the thresholds which abort the LHC beam when bad conditions are detected (and given that it costs hundreds of thousands of Swiss Francs to dump the beam and ramp it back up, this was a pretty serious choice to make!)
+</p>
+
+<h4>Spatial Resolution of the PLT System</h4>
+<p>
+Measuring the spatial resolution of the PLT system was a multi-step process which I was tasked to manage.  The general idea behind the measurement is to use a high resolution tracking system to provide a trustworthy reference point, and then essentially measure the difference between what that system reports and what your own system reports as the position of an incident particle. I <a href="{% url 'project' 'zurich-beam-telescope' %}">resurrected a silicon strip tracker from the University of Zurich</a> to provide the reference system, designed the mechanics to mount the PLT, led a team of ~15 people to set up the apparatus in a particle beam (<a href="http://public.web.cern.ch/public/en/research/PS-en.html">CERN's PS</a>), acquired the data, and analyzed the data. In the end, I presented a <a href="{{STATIC_URL}}/projects/diamond/IEEE10-poster.pdf">poster</a>, a <a href="{{STATIC_URL}}/projects/diamond/Pixel10-talk.pdf">talk</a>, a <a href="{{STATIC_URL}}/projects/diamond/IEEE10-paper.pdf">conference proceedings paper</a>, and another <a href="{{STATIC_URL}}/projects/diamond/Pixel10-paper.pdf">paper</a> on my findings.
+</p>
+
+<h4>Lorentz Angle Measurement for the PLT System</h4>
+<p>
+The setup for measuring a Lorentz Angle of a detector is similar to measuring the spatial resolution, except you need a magnetic field.  So, a year after successfully measuring the spatial resolution of the PLT detectors, I set out again to do a similar study, this time with a 3 Tesla magnetic field in <a href="http://public.web.cern.ch/public/en/research/SPS-en.html">CERN's SPS Beam</a>.  This resulted in a <a href="{{STATIC_URL}}/projects/diamond/IEEE11-poster.pdf">poster</a> and a <a href="{{STATIC_URL}}/projects/diamond/IEEE11-paper.pdf">conference proceedings paper</a>.
+</p>
+
+<h3>Relevant Papers and Presentations</h3>
+<ul>
+	<li>IEEE NSS/MIC 2011 (<a href="{{STATIC_URL}}/projects/diamond/IEEE11-poster.pdf">poster</a>) (<a href="{{STATIC_URL}}/projects/diamond/IEEE11-paper.pdf">paper</a>)</li>
+	<li>IEEE NSS/MIC 2010 (<a href="{{STATIC_URL}}/projects/diamond/IEEE10-poster.pdf">poster</a>) (<a href="{{STATIC_URL}}/projects/diamond/IEEE10-paper.pdf">paper</a>)</li>
+	<li>IEEE NSS/MIC 2009 (<a href="{{STATIC_URL}}/projects/diamond/IEEE09-talk.pdf">talk</a>) (<a href="{{STATIC_URL}}/projects/diamond/IEEE09-paper.pdf">paper</a>) (<a href="http://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=6&cts=1331692435280&ved=0CE8QFjAF&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D5873872&ei=egNgT_PLNIvpgAf47bD4Bw&usg=AFQjCNGBJjNOyvKWmu7CFwM8wAgLQ92ihg&sig2=ZM3lfwokOtVNok-u9el1MA">ieee citation)</a></li>
+	<li>Pixel 2010 (<a href="{{STATIC_URL}}/projects/diamond/Pixel10-talk.pdf">talk</a>) (<a href="{{STATIC_URL}}/projects/diamond/Pixel10-paper.pdf">paper</a>)</li>
+	<li><a href="{{STATIC_URL}}/projects/diamond/IEEE11-paper.pdf">Lorentz Angle Measurement of Diamond-Based Detectors</a></li>
+	<li><a href="http://trace.tennessee.edu/utk_physastrpubs/6/">Studies of Mono-Crystalline CVD Diamond Pixel Detectors</a></li>
+
+	<li><a href="http://www.sciencedirect.com/science/article/pii/S0168900210009514">Results from a beam test of a prototype PLT diamond pixel telescope</a></li>
+</ul>
+{% endblock %}

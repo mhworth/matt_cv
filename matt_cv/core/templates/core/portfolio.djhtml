@@ -1,0 +1,50 @@
+{% extends "core/base.djhtml" %}
+{% load url from future %}
+
+{% block title %}Portfolio{% endblock %}
+
+{% block content %}
+    
+    <hr/>
+
+    <!--Skills Heading-->
+    <div class="row">
+        <div class="span12 centered">
+            <h1 style="display:inline;">Portfolio</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span4 offset4 centered">
+            
+        </div>
+    </div>
+    <hr/>
+
+    <!--Projects-->
+    {% for project in projects %}
+    <div class="row">
+        <div class="span12 project">
+            <div class="row">
+                <div class="span8">
+                <h3><a href="{{project.get_absolute_url}}">{{project.name}}</a></h3>
+            </div>
+            </div>
+            <div class="row">
+                <div class="span5">{{project.start_date|date:"N Y"}} - {% if project.end_date %}{{project.end_date|date:"N Y"}}{%else%} Present {% endif %}</div>
+            </div>
+            <div class="row">
+                <div class="span3">
+                    {% if project.thumbnail %}
+                        <a href="{{project.get_absolute_url}}"><img class="thumbnail project" src="/media/{{project.thumbnail.name}}" alt="{{project.name}} [thumbnail]" /> </a>
+                    {% endif %}
+                </div>
+                <div class="span8"  >
+                    {{project.description}}
+                </div>
+            </div>
+            <hr>
+        </div>
+    </div>
+    {% endfor %}
+    
+{% endblock %}

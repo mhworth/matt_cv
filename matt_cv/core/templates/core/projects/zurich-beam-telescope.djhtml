@@ -1,0 +1,17 @@
+{% extends "core/project_base.djhtml" %}
+{% load url from future %}
+
+{% block description %}
+<h2>My Contributions</h2>
+<p>
+	The Zurich Beam Telescope<sup>[<a href="http://www.sciencedirect.com/science/article/pii/S0168900201012414">1</a>]</sup> is a silicon-based microstrip tracking detector, capable of resolving particle positions to within 1 micrometer.  We decided to use this detector do perform <a href="{% url 'project' 'diamond'%}">detailed studies of the spatial resolution of diamond pixel detectors</a>; however, it no longer had a working readout system, and I needed to design one in order to operate the detector.  
+</p>
+<p>
+	The resulting readout and analysis software was written entirely in C++ (with the exception of a few scripts which were in python), while the hardware side of the solution utilized a VME-based readout.  Relevant technologies used were:
+	<ul>
+		<li>VME</li>
+		<li>ncurses</li>
+		<li><a href="http://root.cern.ch">ROOT</a></li>
+	</ul>
+</p>
+{% endblock %}

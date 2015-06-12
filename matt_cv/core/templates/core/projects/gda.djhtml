@@ -1,0 +1,48 @@
+{% extends "core/project_base.djhtml" %}
+{% load url from future %}
+{% block additional_js %}
+<script type="text/javascript">
+	$(function() {
+		$('.carousel').carousel()
+	});
+</script>
+{% endblock %}
+{% block description %}
+<h2> My Involvement with Global Dressage Analytics (GDA)</h2>
+<p>
+	GDA is a web application designed primarily for riders, horses, judges, and trainers to track how well they perform these various figures in order to get some idea about how they could improve their scores.  This is done using a combination of statistical/predictive analysis on the data and interactive tools for the rider to, for example, simulate how they’d perform at a competition given their past performance.  Given the computationally intensive nature of the predictive analysis, this application required a rather unique architecture.  I wrote all of the backend (as of the time of writing, Mar. 15, 2012) and a bit more than half of the frontend (I only didn’t do the design work for the website, i.e., wireframes).
+</p>
+<p>
+	See the image gallery below for a few images of what the webapp looks like, or just visit <a href="http://dressageanalytics.com">http://dressageanalytics.com</a> and see for yourself.
+</p>
+<p>
+	The key technologies in the architecture consist of <a href="http://python.org">python</a>/<a href="http://djangoproject.com">django</a>, <a href="http://www.mysql.org">MySQL</a>, <a href="http://mongodb.org">MongoDB</a>, <a href="http://memcached.org/">memcached</a>, <a href="http://httpd.apache.org/">Apache HTTPD 2</a>, <a href="http://protovis.org">protovis</a>/<a href="http://mbostock.github.com/d3/">d3.js</a>, <a href="http://jquery.com">jQuery</a>, and lots of various python packages.
+</p>
+
+<h2>Images</h2>
+<div class="row">
+	<div class="span8 offset2">
+
+		<div id="gda-screenshots" class="carousel gda">
+		  <!-- Carousel items -->
+		  <div class="carousel-inner gda">
+		    <div class="active item">
+		    	<img alt="Trendline" src="{{STATIC_URL}}/projects/gda/TrendLineDemo.jpg" />
+		    </div>
+		    <div class="item">
+		    	<img alt="Simulation" src="{{STATIC_URL}}/projects/gda/SimulationDemo.jpg"/>
+		    </div>
+		    <div class="item">
+		    	<img alt="Competition Heatmap" src="{{STATIC_URL}}/projects/gda/AnalyzeCompetitionHeatmapDemo.jpg"/>
+		    </div>
+		    <div class="item">
+		    	<img alt="Competition History" src="{{STATIC_URL}}/projects/gda/CompetitionHistoryDemo.jpg"/>
+		    </div>
+		  </div>
+		  <!-- Carousel nav -->
+		  <a class="carousel-control left" href="#gda-screenshots" data-slide="prev">&lsaquo;</a>
+		  <a class="carousel-control right" href="#gda-screenshots" data-slide="next">&rsaquo;</a>
+		</div>
+	</div>
+</div>
+{% endblock %}

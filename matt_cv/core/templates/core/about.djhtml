@@ -1,0 +1,21 @@
+{% extends "core/base.djhtml" %}
+{% load url from future %}
+
+{% block content %}
+    
+    <div class="row">
+
+        <div class="span11 offset1">
+            <div class="hero-unit">
+                <h1>About Me</h1>
+                <p>I am a <span class="strong">software engineer</span> and <span class="strong">data analyst</span> with extensive experience in software development, most of which occurred at <a href="http://cern.ch">CERN</a>--home to the <a href="http://en.wikipedia.org/wiki/Large_Hadron_Collider">Large Hadron Collider</a> and birthplace of the World Wide Web<sup>[<a href="http://en.wikipedia.org/wiki/History_of_the_World_Wide_Web">1</a>]</sup><sup>[<a href="http://public.web.cern.ch/public/en/about/web-en.html">2</a>]</sup>.  My specialties include web application development, distributed data mining/analysis, instrument control systems, and statistical modeling. 
+                </p>
+                <p>
+                Now, I am part of the founding team at <a href="http://www.dressageanalytics.com">Global Dressage Analytics</a>, and have been responsible for the engineering aspect of the project since its inception. Before that, I was busy designing web-based software to protect particle accelerators from being damaged, control data acquisition systems, and transport/display monitoring data for shifters for the <a href="http://en.wikipedia.org/wiki/Large_Hadron_Collider">Large Hadron Collider</a> and the <a href="http://en.wikipedia.org/wiki/Compact_Muon_Solenoid">Compact Muon Solenoid</a> experiment at <a href="http://cern.ch">CERN</a> in Geneva, Switzerland.</p>
+                
+            </div>
+        </div>
+    </div>
+
+    
+{% endblock %}

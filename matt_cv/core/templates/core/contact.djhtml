@@ -1,0 +1,43 @@
+{% extends "core/base.djhtml" %}
+{% load url from future %}
+
+{% block title %}Contact{% endblock %}
+
+{% block content %}
+    
+    <hr/>
+
+    <!--Heading-->
+    <div class="row">
+        <div class="span12 centered">
+            <h1 style="display:inline;">Contact</h1>
+        </div>
+    </div>
+    <hr/>
+
+    <!--Contact-->
+    <div class="row relative">
+        <div class="span4 offset2">
+            <h3>Primary Contact Info</h3>
+            <ul class="contact-list">
+                <li>Matthew Scott Hollingsworth</li>
+                <li>Email: <a href="mailto:mr.hworth@gmail.com">mr.hworth@gmail.com</a></li>
+                <li>Phone: (865) 226-9540</li>
+                <li style="font-size:small">I'm currently located in the Ann Arbor, MI area.</li>
+            </ul>
+            <h3>Social Media</h3>
+            <ul class="contact-list">
+                <li>
+                    <a href="http://www.linkedin.com/pub/matt-hollingsworth/29/aa1/163">LinkedIN</a>
+                </li>
+                <li>
+                    <a href="http://www.facebook.com/mhworth">Facebook</a>
+                </li>
+            </ul>
+            <!-- <img class="thumbnail matt-face" alt="Matt" src="{{STATIC_URL}}/img/matt.png" /> -->
+        </div>
+    </div>
+
+    
+
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends "core/project_base.djhtml" %}
+{% load url from future %}
+
+{% block description %}
+<h2>My Contributions</h2>
+<p>
+	The <a href="http://hep.phys.utk.edu/activities/cms/beam-and-radiationmonitoring/">Beam Radiation Montioring (BRM)</a> group is collection of radiation monitors with the responsibility of providing a dependable early warning system for detecting adverse radiation conditions, which could result in damage to the multi-billion dollar instruments inside of CMS. 
+</p>
+<p>
+	Feedback from the BRM subsystems is integral to machine safety and therefore is monitored 24/7 for abnormalities.  The monitoring system I designed provides shifters with data at a rate of 1 Hz with a latency of less than 100 ms.  Since it is important to see time-evolving trends, the displays are also capable of starting up with a full 24h of data in the history, even if the display computer was restarted.  This is possible because the displays use another product of mine, called <a href="{% url 'project' 'dipcache'%}">DIP-Cache</a> to recall historical data upon startup.  Using DIP-Cache as the primary source of data for the displays also ensures that data is not lost if there are network issues for the display computer. The displays constantly query for all data after the last timestamp received, so if an intermittant network problem occurrs, the user is guaranteed to receive the data when the network is reestablished.  The displays are also fully configured by XML, so new displays may be (and have been!) made by non-experts.
+</p>
+<p>
+	For more information about the project, <a href="{{STATIC_URL}}/projects/brm-displays/brm-displays-detector-note.pdf">here</a> is a whitepaper on it.  
+</p>
+<p>
+	The BRM display framework was implemented entirely in the Java programming language, and the main technologies used were:
+	<ul>
+		<li>JDataViewer (A CERN-original plotting library)</li>
+		<li>Apache HTTP Client</li>
+		<li>Maven</li>
+		<li>Spring</li>
+		<li>Apache Velocity Engine</li>
+		<li>Swixml</li>
+		<li>Swing</li>
+		<li>Java Web Start</li>
+	</ul>
+</p>
+
+<h2>Images</h2>
+<div class="row">
+	<div class="span8 offset2">
+
+		<div id="brm-screenshots" class="carousel lacasadelsol">
+		  <!-- Carousel items -->
+		  <div class="carousel-inner lacasadelsol">
+		    <div class="active item">
+		    	<img alt="CERN Control Center Display" src="{{STATIC_URL}}/projects/brm-displays/ccc-display.png"/>
+		    </div>
+		    <div class="item">
+		    	<img alt="ROOT plots" src="{{STATIC_URL}}/projects/brm-displays/root-plots-on-demand.png" />
+		    </div>
+		    <div class="item">
+		    	<img alt="histograms" src="{{STATIC_URL}}/projects/brm-displays/brm-sample-display.png"/>
+		    </div>
+		  </div>
+		  <!-- Carousel nav -->
+		  <a class="carousel-control left" href="#brm-screenshots" data-slide="prev">&lsaquo;</a>
+		  <a class="carousel-control right" href="#brm-screenshots" data-slide="next">&rsaquo;</a>
+		</div>
+	</div>
+</div>
+{% endblock %}

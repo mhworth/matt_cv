@@ -1,0 +1,51 @@
+WSGIPythonHome /opt/local/BASELINE
+
+<VirtualHost *:80>
+    ServerAdmin matt@crabice.com
+    DocumentRoot /var/www
+
+    WSGIScriptReloading On
+    WSGIDaemonProcess gda_web
+    WSGIProcessGroup gda_web
+    WSGIApplicationGroup gda_web
+    WSGIPassAuthorization On
+    
+    # Setup webapp URLS
+    WSGIScriptAlias / /opt/local/matt_cv/conf/matt_cv.wsgi
+
+    
+    # Static Content
+    Alias /static /opt/local/matt_cv/static
+    Alias /media /opt/local/matt_cv/media
+    Alias /blog /opt/local/mhworth_wordpress
+    <Location "/static/admin">
+        SetHandler None
+    </Location>
+    <Location "/media">
+        SetHandler None
+    </Location>
+    <Location "/static">
+        SetHandler None
+    </Location>
+    
+    # Logging
+    # Possible values include: debug, info, notice, warn, error, crit,
+    # alert, merg.
+    ErrorLog /var/log/apache2/error.log
+    LogLevel warn
+    CustomLog /var/log/apache2/access.log combined
+
+    # Security
+    <Directory />
+        Options FollowSymLinks
+        AllowOverride None
+    </Directory>
+    <IfModule mod_security.c>
+
+        SecAction initcol:ip=%{REMOTE_ADDR},nolog
+        SecRule ARGS:login "!^$" \
+           nolog,phase:1,setvar:ip.auth_attempt=+1,deprecatevar:ip.auth_attempt=20/120
+        SecRule IP:AUTH_ATTEMPT "@gt 25" \
+           log,drop,phase:1,msg:'Possible Brute Force Attack"
+    </IfModule>
+</VirtualHost>

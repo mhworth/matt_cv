@@ -1,0 +1,21 @@
+{% extends "core/project_base.djhtml" %}
+{% load url from future %}
+
+{% block description %}
+<h2>My Contributions</h2>
+<p>
+	DIP-Cache is a solution to the problem of ensuring zero data loss in realtime instrument monitoring displays.  It serves as an intermediary server that takes data from a data source (any process communicating via the <a href="http://itcofe.web.cern.ch/itcofe/Services/DIP/welcome.html">Data Interchange Protocol (DIP)</a>) caches it, and serves it back via a Java Servlet to any client requesting it.   The servlet responds to several query parameters, including requesting data from only one data source, requesting a fixed number of data points, and requesting all data that came after a given timestamp.  Using the timestamp query, display applications select new data to display by appending all of the data that came in since its last acquired timestamp.  This mechanism ensures that intermittant network problems or system crashes does not result in lost data for the display when the display is reconnected or restarted. 
+</p>
+<p>
+	DIP-Cache is used in two subsystems in the Compact Muon Solenoid (CMS) experiment--The <a href="{% url 'project' 'brm-display' %}">Beam and Radiation Monitoring</a> system and the <a href="{% url 'project' 'plt-daq' %}">Pixel Luminosity Telescope</a> system. 
+</p>
+<p>
+	DIP-Cache was implemented entirely in Java, and the main technologies used were:
+	<ul>
+		<li>Apache HTTP Client</li>
+		<li>Servlets</li>
+		<li>Spring</li>
+		<li>Maven</li>
+	</ul>
+</p>
+{% endblock %}

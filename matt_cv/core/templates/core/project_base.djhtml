@@ -1,0 +1,50 @@
+{% extends "core/base.djhtml" %}
+{% load url from future %}
+
+{% block js %}
+<script type="text/javascript">
+	$(function() {
+		$("a").tooltip();
+	});
+</script>
+{% block additional_js %}
+
+{% endblock %}
+{% endblock %}
+
+{% block content %}
+	<div class="row">
+		<div class="span11">
+			<h1>{{project.name}}</h1>	
+		</div>
+	</div>
+	<div class="row">
+		<div class="span11">
+			<h3>{{project.start_date|date:"N Y"}} - {% if project.end_date %}{{project.end_date|date:"N Y"}}{% else %}Present{% endif %}</h3>	
+		</div>
+	</div>
+	<div class="row">
+		<div class="span12 ">
+			{{project.description}}
+		</div>
+	</div>
+	<div class="row">
+		<div class="span8 offset2">
+			<img class="thumbnail project" src="{{MEDIA_URL}}/{{project.thumbnail.name}}" alt="{{project.name}}" />
+		</div>
+	</div>
+   	<div class="row">
+   		<div class="span10 offset1">
+   			<h4>Primary Skills Used</h4>
+            {% for skill in project.skills.all %}
+              <a class="skill" href="{% url 'skills' %}?skill={{skill.slug}}"><span class="label skill skill-2" title="{{skill.description}}">{{skill.name}}</span></a>
+            {% endfor %}
+   		</div>
+   	</div>
+   <div class="project-description row">
+		<div class="span10 offset1 detailed-description">
+	   		{% block description %}{% endblock %}
+		</div>
+	</div>
+
+{% endblock %}

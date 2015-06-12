@@ -1,0 +1,12 @@
+{% extends "core/project_base.djhtml" %}
+{% load url from future %}
+
+{% block description %}
+<h2>My Contribution</h2>
+<p>
+	"Introduction to Modern Data Acquisition Using LabVIEW and MATLAB" is a laboratory designed for us in the University of Tennessee Physics Department's Modern Physics Laboratory.  It has been used to provide students with an introduction to using modern tools to control experimental apparatuses using LabVIEW and MATLAB in tandem.
+</p>
+<p>
+	A copy of the writeup may be found <a href="{{STATIC_URL}}/projects/intro-modern-daq/imda.pdf">here</a>.  It was written using Adobe InDesign, LabVIEW 7, MATLAB 7.2, and a National Instruments set of voltage digitizers (NI USB-6000 series).
+</p>
+{% endblock %}

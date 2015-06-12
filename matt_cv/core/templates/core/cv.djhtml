@@ -1,0 +1,183 @@
+{% extends "core/base.djhtml" %}
+{% load url from future %}
+
+{% block title %}Resume/CV{% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+    var cvview = new MattCV.CVView();
+    cvview.registerLegendHighlights();
+</script>
+{%endblock%}
+
+{% block content %}
+    
+    <hr/>
+
+    <!--Skills Heading-->
+    <div class="row">
+        <div class="span12" style="text-align:center;">
+            <h1 style="display:inline;">Skills</h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span4 offset4" style="text-align:center;">
+            
+        </div>
+    </div>
+    <hr/>
+
+    <!--Skills-->
+    <div class="row">
+        <div class="span2">
+            <div class="row" style="min-height:50px;"></div>
+            <span class="help-inline strong">* Click on a skill to see a list of projects I have done that used that skill</span>
+        </div>
+        <div class="span8">
+            {% for skill in skills %}
+                <a class="skill" href="{% url 'skills' %}?skill={{skill.slug}}"><span class="label skill skill-{{skill.years_of_experience}}" title="{{skill.description}}">{{skill.name}}</span></a>
+            {% endfor %}
+        </div>
+        <!--Legend-->
+        <div class="span2" style="text-align:center;">
+            <h3 style="text-align:center;">Years of Experience</h3>
+            <span class="label skill skill-6 noclick legend" data-selector=".skill-6">6+ Years</span><br/>
+            <span class="label skill skill-5 noclick legend" data-selector=".skill-5">5-6 Years</span><br/>
+            <span class="label skill skill-3 noclick legend" data-selector=".skill-3, .skill-4">3-4 Years</span><br/>
+            <span class="label skill skill-1 noclick legend" data-selector=".skill-1, .skill-2">1-2 Years</span><br/>
+            <span class="strong">(Hover to highlight)</span>
+        </div>
+    </div>
+    
+
+    <!--Work Experience Heading-->
+    <hr/>
+    <div class="row">
+        <div class="span12" style="text-align:center;">
+            <h1 style="display:inline;">Work Experience</h1><label>References available on <a href="{% url 'contact' %}">request</a></label>
+        </div>
+    </div>
+    <hr/>
+
+    <!--Work Experience-->
+    <div class="row">
+        {% for work_experience in work_experiences %}
+            <div class="span12 work-experience">
+                <a id="{{work_experience.slug}}"></a>
+                <h2>{{work_experience.position}} @ {{work_experience.employer}}</h2>
+                <h3>{{work_experience.start_date|date:"N Y"}} - {% if work_experience.end_date %}{{work_experience.end_date|date:"N Y"}}{% else %} Present{%endif%}</h3>
+                <p>{{work_experience.description}}</p>
+
+                <h4>Contributions</h4>
+                <ul>
+                    {% for contribution in work_experience.contribution_set.all %}
+                        <li><span class="contribution">{{contribution.description}}</span></li>
+                    {% endfor %}
+                </ul>
+
+                <h4>Primary Skills Used</h4>
+                {% for skill in work_experience.skills.all %}
+                  <a class="skill project" href="{% url 'skills' %}?skill={{skill.slug}}"><span class="label project skill skill-2" title="{{skill.description}}">{{skill.name}}</span></a>
+                {% endfor %}
+                <h4 class="key-projects">Key Projects</h4>
+                <ul class="projects-list">
+                    {% for project in work_experience.project_set.all %}
+                    <li class="project work-experience">
+                    <div class="row">
+                        <a href="{{ project.get_absolute_url }}" class="project work-experience">{{ project.name }}</a>
+                    </div>
+                    <div class="row">
+                        <div class="span2">
+                        <a href="{{ project.get_absolute_url }}"><img class="thumbnail project" alt="{{project.name}}" src="/media/{{project.thumbnail}}" /> </a>
+                        </div>
+                        <div class="span9">
+                            <p>{{ project.description }}</p><div class="clear"></div>
+                        </div>
+                    </div>
+                    </li>
+
+                    {% endfor %}
+                </ul>
+                <div class="clear"></div>
+                {% if forloop.revcounter0 != 0 %}
+                <hr>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <!--Education Heading-->
+    <hr/>
+    <div class="row">
+        <div class="span12" style="text-align:center;">
+            <h1 style="display:inline;">Education</h1>
+        </div>
+    </div>
+    <hr/>
+
+    <div class="row">
+        <div class="span4 offset1 education">
+            <h3>Master of Science in Physics</h3>
+            <h4>University of Tennessee</h4>
+            <p>Summa Cum Laude</p>
+            <p>December 2011</p>
+            <p>GPA: 3.85 on a 4.0 scale</p>
+        </div>
+        <div class="span2">
+            <!-- <img class="ut-logo education" src="{{STATIC_URL}}/img/ut_logo.png"></img> -->
+            <img class="ut-logo education" src="{{STATIC_URL}}/img/ut_seal.png" alt="UT Seal" />
+        </div>
+        <div class="span4 education">
+            <h3>Bachelor of Science in Physics</h3>
+            <h4>University of Tennessee</h4>
+            <p>Summa Cum Laude</p>
+            <p>May 2008</p>
+            <p>GPA: 4.0 on a 4.0 scale</p>
+        </div>
+    </div>
+
+
+    <!--Awards Heading-->
+    <hr/>
+    <div class="row">
+        <div class="span12" style="text-align:center;">
+            <h1 style="display:inline;">Awards</h1>
+        </div>
+    </div>
+    <hr/>
+
+    <!--Awards-->
+    <div class="row">
+        <div class="span10 offset2">
+            <ul>
+                {% for award in awards %}
+                    <li>{{award.name}}, {{award.awarded_by}} ({{award.year_awarded}})</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+    <!--Publications Heading-->
+    <hr/>
+    <div class="row">
+        <div class="span12 centered">
+            <h1 style="display:inline;">Publications</h1>
+        </div>
+    </div>
+    <hr/>
+
+    <!--Publications-->
+    <div class="row">
+        <div class="span2">
+            <div class="row" style="min-height:50px;"></div>
+            <span class="help-inline"><span class="strong" style="font-size:x-large"><sub>*</sub> </span> Primary Author</span>
+        </div>
+        <div class="span8">
+        <ol>
+            {% for publication in publications %}
+                <li value="{{forloop.revcounter}}">{% if publication.primary_author %}<span class="strong" style="font-size:x-large"><sub>*</sub> </span>{% endif %}{{publication.citation}}</li>
+            {% endfor %}
+        </ol>
+    </div>
+    </div>
+{% endblock %}

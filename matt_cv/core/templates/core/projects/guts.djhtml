@@ -1,0 +1,23 @@
+{% extends "core/project_base.djhtml" %}
+{% load url from future %}
+
+{% block description %}
+<h2>My Contributions</h2>
+<p>
+	The Generalized Unilateral Transfer Server framework (GUTS) was made to solve a unique data transfer problem that was plaguing the <a href="http://en.wikipedia.org/wiki/Compact_Muon_Solenoid">Compact Muon Solenoid</a>'s Beam Radiation Monitoring (BRM) group.  They needed a way to transport their instrument's data with a minimum of latency to multiple client processes using a protocol that enforced traffic <span class='strong'> in one direction only</span>.  This latter requirement was due to the CERN network security policy regarding communication between machine networks.  The instrument readouts were located in the <a href="http://en.wikipedia.org/wiki/Large_Hadron_Collider">Large Hadron Collider</a>'s network, and we needed the data in CMS's technical network.  Requiring that no data be sent back to the data server ruled out using more conventional approaches, so I provided a customized solution to the problem.
+</p>
+<p>
+	GUTS is still in use today by the CMS BRM group.  It is the primary source of data for the BRM subsystems, which provide the data for instrument protection for the entire CMS experiment.  For more information, <a href="{{STATIC_URL}}/projects/guts/guts-paper.pdf">here</a> is a whitepaper I wrote on it.
+</p>
+<p>
+	GUTS was implemented entirely in the Java programming language, and the main technologies used were:
+
+	<ul>
+		<li>Network Programming (Sockets API)</li>
+		<li>Spring</li>
+		<li>Maven</li>
+		<li>JUnit</li>
+		<li>Swing</li>
+	</ul>
+</p>
+{% endblock %}

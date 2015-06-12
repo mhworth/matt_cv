@@ -1,0 +1,27 @@
+{% extends "core/project_base.djhtml" %}
+{% load url from future %}
+
+{% block description %}
+<h2>My Contributions</h2>
+<p>
+	The <a href="http://hep.phys.utk.edu/activities/cms/beam-and-radiationmonitoring/">Beam Radiation Montioring (BRM)</a> group is collection of radiation monitors with the responsibility of providing a dependable early warning system for detecting adverse radiation conditions.  
+</p>
+<p>
+	Since the safety of the entire CMS expeiment depends on the continuing operation of the BRM subsystems, a robust infrastructure must be used to guarantee near 100% uptime of the core system services.  I was tasked with designing and implementing the data transport infrastructure, responsible for logging acquired data to deep storage and transporting it to the <a href="{% url 'project' 'brm-display' %}">realtime display framework</a> (which I also designed and implemented).
+</p>
+<p>
+	The diagram above shows the overall architecture.  I implemented the primary <a href="{% url 'project' 'guts'%}">transport protocol called GUTS</a> in addition to the data archival and processing functionality.  Data from all instruments is logged at a rate of 1Hz and archived permanently to a hierarchical storage system (called <a href="http://castor.web.cern.ch/">CASTOR</a>) nightly.  It is also processed into ~20 separate data streams which each go to a different monitor in the CMS control room.
+</p>
+<p>
+	This infrastructure is implemented in the Java programming language.  The key relevant technologies used were
+	<ul>
+		<li>Network Programming (Sockets API)</li>
+		<li>CORBA</li>
+		<li>Servlets</li>
+		<li>Spring</li>
+		<li>Maven</li>
+		<li>JUnit</li>
+		<li>Swing</li>
+	</ul>
+</p>
+{% endblock %}

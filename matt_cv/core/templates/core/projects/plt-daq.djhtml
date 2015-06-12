@@ -1,0 +1,21 @@
+{% extends "core/project_base.djhtml" %}
+{% load url from future %}
+
+{% block description %}
+<h2>My Contributions</h2>
+<p>
+	The PLT is a next generation <a rel="tooltip" href="http://en.wikipedia.org/wiki/Luminosity" title="The number of particles per unit area per unit time times the opacity of the target">luminosity</a> monitor, situated close to the interaction region of the <a href="http://en.wikipedia.org/wiki/Large_Hadron_Collider">Large Hadron Collider (LHC)</a> inside of the <a href="http://en.wikipedia.org/wiki/Compact_Muon_Solenoid">Compact Muon Solenoid Experiment (CMS)</a>.  Its readout is based on the same technology that is behind CMS's Silicon Pixel Detector system<sup>[<a href="{{STATIC_URL}}/projects/plt-daq/psi46.pdf">1</a>][<a href="{{STATIC_URL}}/projects/plt-daq/pixelfed.pdf">2</a>]</sup>--a highly unique, customized data acquisition system that outputs over a Terabyte per second from 66 million channels (nearly) 24/7.
+</p>
+<p>
+	This system is complex, requiring multi-step calibration routines to turn on, configure, and optimize.  I worked with a team of scientists to develop software to run this system.  In particular, I was put in charge of designing the architecture behind the readout code, designing/implementing the core calibration routines, and designing an <a href="{% url 'project' 'diamond' %}">analysis framework</a> to cope with the data once we have it.
+</p>
+<p>
+	The resulting system was a hybrid of C++ and Python.  Python was used to deal with controlling the system, and C++ was used to implement the core functionality of the system.  I used <a href="http://www.boost.org/doc/libs/1_49_0/libs/python/doc/">Boost.Python</a> to generate the python interface for the software.  Other key technologies that were used were:
+	<ul>
+		<li><a href="http://root.cern.ch">ROOT</a></li>
+		<li><a href="http://en.wikipedia.org/wiki/VMEbus">VME</a></li>
+		<li><a href="http://scons.org">Scons</a></li>
+		<li><a href="{% url 'project' 'brm-display' %}">My Display Framework</a></li>
+	</ul>
+</p>
+{% endblock %}

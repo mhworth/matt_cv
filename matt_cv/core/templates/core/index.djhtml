@@ -1,0 +1,29 @@
+{% extends "core/base.djhtml" %}
+{% load url from future %}
+
+{% block content %}
+    
+    <div class="front-page header">
+            <img class="matt-face front-page" src="{{STATIC_URL}}/img/matt-half-body-transparent-medium.png" alt="Matt"/>
+
+            <div class="hero-unit front-page">
+                <h1>Matt Hollingsworth</h1>
+                <p>I am a <span class="strong">software engineer</span>, <span class="strong">data analyst</span>, and <span class="strong">entrepreneur</span>.  My specialties include web application development, distributed data mining/analysis, instrument control systems, and statistical modeling. 
+                </p>
+
+                
+                <p>
+                    <a class="btn btn-primary btn-large" href="{% url 'resume' %}"
+                    >Resume &raquo;</a>
+                    <a class="btn btn-primary btn-large" href="{% url 'portfolio' %}"
+                    >Portfolio &raquo;</a>
+                    <a class="btn btn-primary btn-large" href="{% url 'skills' %}"
+                    >Skills &raquo;</a>
+                    <a class="btn btn-primary btn-large" href="{% url 'contact' %}"
+                    >Contact &raquo;</a>
+                </p> 
+            </div>
+    </div>
+
+    
+{% endblock %}

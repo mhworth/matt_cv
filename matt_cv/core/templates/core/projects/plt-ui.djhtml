@@ -1,0 +1,24 @@
+{% extends "core/project_base.djhtml" %}
+{% load url from future %}
+
+{% block description %}
+<h2>My Contributions</h2>
+<p>
+	<a href="{{% url 'project' 'plt-daq' %}">The readout system for PLT is complex</a> and difficult for a non-expert to operate.  Since most of the people who operate the detector once its installed are not experts on the system, it is essential to have a user-friendly interface to operate the system.  I was put in charge of designing and implementing this user interface.
+</p>
+
+<p>
+	The resulting user interface is web-based, utilizing <a href="http://python.org">Python</a>/<a href="http://djangoproject.org">Django</a> as the development framework.  It leads the user through a calibration of the system, ensures that the system is in a defined state each time a calibration is started, and keeps up with every change that calibrations make to the system, merging each incremental change into a full global configuration after each calibration run.  This information is stored in a database for later study.  The user interface can also tell the system to acquire data, tying in the existing calibration results to the acquired data for use in later processing.
+</p>
+<p>
+	The user interface itself is implemented entirely in python, although the "heavy lifting" is all done through the python bindings generated for the <a href="{% url 'project' 'plt-daq'%}">PLT Data Acquisition System</a>.  Key technologies used:
+	<ul>
+		<li>Django</li>
+		<li>MySQL</li>
+		<li><a href="http://root.cern.ch">ROOT</a></li>
+		<li>XML</li>
+		<li>JSON</li>
+	</ul>
+</p>
+
+{% endblock %}
